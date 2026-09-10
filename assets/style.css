@@ -260,6 +260,29 @@ footer .fw{width:34px;opacity:.45;margin-left:auto}
 .future h4::before{content:"F30A  ";font-size:14px}
 .future p{font-size:15px;margin:0;max-width:none}
 
+.profile{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:30px;
+  background:var(--surface);border:1px solid var(--line);border-radius:18px;
+  padding:30px 32px;margin-top:30px;box-shadow:0 4px 18px rgba(11,46,79,.07)}
+@media (max-width:760px){.profile{grid-template-columns:1fr;gap:22px;padding:24px 22px}}
+.pname{font-size:32px;font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.15}
+.pname em{font-style:normal;font-family:var(--disp);font-weight:800;font-size:18px;
+  color:var(--accent);margin-left:9px;letter-spacing:.02em}
+.prole{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--metric);margin-top:7px}
+.ptag{font-size:16px;color:var(--ink);margin:14px 0 18px;max-width:34ch;line-height:1.6}
+.pmeta{margin:0;display:flex;flex-direction:column;gap:8px}
+.pmeta>div{display:grid;grid-template-columns:52px 1fr;gap:12px;align-items:baseline}
+.pmeta dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--ink-faint);
+  padding-top:3px}
+.pmeta dd{margin:0;font-size:14.5px;color:var(--ink-soft);line-height:1.6}
+.pmeta dd span{color:var(--ink-faint);font-size:13px}
+.pright{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:start}
+.pstat{background:var(--hl-soft);border-radius:12px;padding:14px 16px}
+.pstat .n{display:block;font-family:var(--mono);font-size:23px;font-weight:500;color:var(--ink);
+  font-variant-numeric:tabular-nums;line-height:1.15}
+.pstat .u{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--metric);margin-top:4px}
+
 .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
 .links a{font-family:var(--mono);font-size:12px;text-decoration:none;color:var(--ink-soft);
          border:1px solid var(--line);border-radius:3px;padding:6px 12px;background:var(--surface)}
