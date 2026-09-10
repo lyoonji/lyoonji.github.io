@@ -254,6 +254,12 @@ h2.sec{position:relative}
 footer{position:relative}
 footer .fw{width:34px;opacity:.45;margin-left:auto}
 
+.future{border:1px solid var(--line);border-left:4px solid var(--metric);border-radius:12px;
+  background:var(--surface);padding:18px 20px;margin-bottom:12px}
+.future h4{font-size:16.5px;font-weight:600;color:var(--ink);margin-bottom:7px;line-height:1.45}
+.future h4::before{content:"F30A  ";font-size:14px}
+.future p{font-size:15px;margin:0;max-width:none}
+
 .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
 .links a{font-family:var(--mono);font-size:12px;text-decoration:none;color:var(--ink-soft);
          border:1px solid var(--line);border-radius:3px;padding:6px 12px;background:var(--surface)}
