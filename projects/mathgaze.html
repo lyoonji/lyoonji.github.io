@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>math_gaze 데이터 검증 | 이윤지</title>
+<meta name="description" content="출제 문항이 0개였던 시선 기반 학습 진단 앱의 데이터 층을 열고, 재발 방지 검사를 남긴 작업">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<div class="topbar"><div class="topbar-in">
+  <a class="brand" href="../index.html">YOONJI</a>
+  <nav class="topnav"><a href="../index.html">Home</a><a href="../about.html">About</a><a href="../portfolio.html">포트폴리오</a><a href="../projects/index.html" class="on">프로젝트</a></nav>
+</div></div>
+<div class="wrap">
+
+<div class="crumb"><a href="index.html">← 프로젝트 목록</a></div>
+<span class="taglabel">학부연구생</span>
+<h1 class="detail">math_gaze 데이터 검증</h1>
+<p class="lede">출제 문항이 0개였던 시선 기반 학습 진단 앱의 데이터 층을 열고, 재발 방지 검사를 남긴 작업</p>
+<div class="shot"><img src="../assets/data.jpg" alt="검증 판정 분포"></div><div class="shot-cap">검증 판정 분포</div>
+<div class="meta">
+  <div><span class="k">기간</span><span class="v">2026.09</span></div>
+  <div><span class="k">역할</span><span class="v">데이터 · 검증 레인 담당</span></div>
+  <div><span class="k">팀 · 소속</span><span class="v">연구실 프로젝트 · 레인 분리 협업</span></div>
+  <div><span class="k">스택</span><span class="v">Node.js, Python, qwq:32b, deepseek-r1:70b, Ollama</span></div>
+</div>
+<div class="tiles"><div class="tile"><span class="n">0 → 109</span><span class="l">출제 가능 문항</span></div><div class="tile"><span class="n">14x → 1.8x</span><span class="l">출제 편중</span></div><div class="tile"><span class="n">3 → 0</span><span class="l">깨진 AOI 참조</span></div></div>
+<h3 class="step"><span>문제</span></h3><p>앱은 완성돼 있었는데 문제를 한 개도 띄울 수 없었습니다. 원인은 코드가 아니라 검증 데이터가 비어 있는 것이었습니다. 그리고 이 고장은 <b>예외도 로그도 없이 조용했습니다.</b></p>
+<h3 class="step"><span>접근</span></h3><ul class="did"><li>데이터 결함이 필터를 뚫고 들어온 <b>세 가지 경로</b>를 각각 추적해 막았습니다.</li><li>출제 편중은 두 번 실패한 뒤 세 번째에 맞췄습니다. <b>유형 배정을 풀 비율대로</b> 바꿔 편중을 <code class='n'>14배 → 1.8배</code>로 낮췄습니다(커버리지 100%).</li><li>판정을 독립 모델(<code class='k'>deepseek-r1:70b</code>)로 <b>3자 대조</b>해, 제외한 11문항 중 원본 라벨이 틀린 것은 0건임을 확인했습니다.</li><li>이번에 실제로 터졌던 검사만 모아 <code class='k'>재발 방지 스크립트</code>를 커밋했습니다.</li></ul>
+<h3 class="step"><span>결과</span></h3><p>출제 가능 문항을 <code class='n'>0 → 109</code>로 열었고, 1,212건 중 깨진 AOI 참조 3건을 0으로 만들었습니다.</p>
+<h3 class="step"><span>이슈 · 고민 기록</span></h3><p>프로젝트를 진행하며 실제로 막혔던 지점과 그때 내린 판단입니다.</p><div class="issue"><h4>에러가 안 나는 고장이 제일 오래 산다</h4><p>이번에 찾은 문제들의 공통점은 전부 조용했다는 것입니다. 확장이 보낸 시선 좌표의 90%를 버리고 있었는데 좌표는 계속 들어오고 로그도 계속 쌓였습니다. 3자 대조 12건이 전부 실패했는데도 <code class='k'>exit 0</code>과 빈 결과 파일 때문에 성공으로 기록됐습니다. 그래서 마지막에 <b>문제가 있으면 종료 코드 1을 내는</b> 검사 스크립트를 만들고, 일부러 데이터를 깨뜨려 걸리는 것까지 확인했습니다.</p>
+          <div class="take"><b>배운 것</b><span>빈 결과 파일은 '검사했더니 문제 없음'과 구분되지 않는다.</span></div></div><div class="issue"><h4>출제 편중을 두 번 실패하고 세 번째에 맞췄다</h4><p>특정 문항이 다른 문항보다 14배 자주 나왔습니다. 1차로 비율대로 배분하니 편중은 3.2배로 줄었지만 <b>7문항이 아예 안 나왔습니다.</b> 2차로 학년 균형을 포기하니 2.5배가 됐지만 얇은 유형이 과대표집됐습니다. 3차에서 유형 배정을 풀 비율대로 바꾸자 1.8배 · 커버리지 100%가 나왔습니다. 순서로 균형을 강제하는 한 어느 쪽이든 치우친다는 것이 결론이었습니다.</p>
+          <div class="take"><b>배운 것</b><span>편향 없는 순서란 결국 균등 셔플과 같다.</span></div></div><div class="issue"><h4>재생성이 항상 개선은 아니었다</h4><p>잘린 추론 결과를 발견하고 <code class='k'>--force</code>로 다시 만들었더니 <b>또 잘렸고 이번엔 풀이 단계까지 사라졌습니다.</b> 원래 것보다 나빠져서 되돌렸습니다. temperature=0, seed=0인데도 실행마다 결과가 달랐습니다.</p>
+          <div class="take"><b>배운 것</b><span>덮어쓰기 전에 지금 것이 쓸 만한지 먼저 본다.</span></div></div><div class="issue"><h4>장시간 작업을 개발 PC에서 돌리다 12건을 날렸다</h4><p>SSH 터널로 대조 작업을 돌리다 터널이 끊겨 12건이 전부 실패했습니다. 결과를 맨 마지막에 한 번만 저장하는 구조라 통째로 날아갔습니다. 두 가지를 고쳤습니다 — <b>한 건 받을 때마다 저장</b>하고 재실행 시 건너뛰기, 그리고 작업을 서버로 옮겨 <code class='k'>nohup</code>으로 실행. 이후 실제로 VPN이 두 번 끊겼지만 작업은 끝났습니다.</p>
+          <div class="take"><b>배운 것</b><span>장시간 작업은 내 노트북의 연결에 묶어두지 않는다.</span></div></div>
+<h3 class="step"><span>배운 점</span></h3><p><b>검증 도구가 조용히 실패하는 것은 검증하지 않는 것보다 나쁩니다.</b> 빈 결과 파일은 "검사했더니 문제 없음"과 구분되지 않기 때문입니다.</p>
+
+
+<footer>
+  <span>이윤지 · Finance AI / Data</span>
+  <span><a href="mailto:lyoonji1025@gmail.com">lyoonji1025@gmail.com</a></span>
+  <span><a href="https://github.com/lyoonji">github.com/lyoonji</a></span>
+</footer>
+</div></body></html>

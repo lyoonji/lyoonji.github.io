@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>도로 결빙 위험지수 설계 | 이윤지</title>
+<meta name="description" content="결빙·경사·이용객 노출을 통합한 위험지수로, 열선을 먼저 깔아야 할 도로를 제안한 분석">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head><body>
+<div class="topbar"><div class="topbar-in">
+  <a class="brand" href="../index.html">YOONJI</a>
+  <nav class="topnav"><a href="../index.html">Home</a><a href="../about.html">About</a><a href="../portfolio.html">포트폴리오</a><a href="../projects/index.html" class="on">프로젝트</a></nav>
+</div></div>
+<div class="wrap">
+
+<div class="crumb"><a href="index.html">← 프로젝트 목록</a></div>
+<span class="taglabel">광진구 빅데이터 공모전</span>
+<h1 class="detail">도로 결빙 위험지수 설계</h1>
+<p class="lede">결빙·경사·이용객 노출을 통합한 위험지수로, 열선을 먼저 깔아야 할 도로를 제안한 분석</p>
+<div class="shot"><img src="../assets/road.jpg" alt="최종 선정 도로 — 위험 상위 10% ∩ 열선 미설치 ∩ 사고 다발 구간"></div><div class="shot-cap">최종 선정 도로 — 위험 상위 10% ∩ 열선 미설치 ∩ 사고 다발 구간</div>
+<div class="meta">
+  <div><span class="k">기간</span><span class="v">2025.03 – 2025.05</span></div>
+  <div><span class="k">역할</span><span class="v">지표 설계 · 공간 분석 · 정책 시각화</span></div>
+  <div><span class="k">팀 · 소속</span><span class="v">팀 3명</span></div>
+  <div><span class="k">스택</span><span class="v">Python, GeoPandas, QGIS, Folium, 공공데이터포털</span></div>
+</div>
+<div class="tiles"><div class="tile"><span class="n">80%+</span><span class="l">민원 다발 구간 일치율</span></div><div class="tile"><span class="n">상위 10%</span><span class="l">자동 산출된 위험 구간</span></div><div class="tile"><span class="n">≈300m</span><span class="l">정류장 단위 도로 재정의</span></div></div>
+<h3 class="step"><span>문제</span></h3><p>기존 정책은 결빙 사고 <b>빈도</b>만 반영했습니다. 하지만 사고가 적게 난 곳이 안전한 곳은 아닙니다. 실제 위험이 공간적으로 어떻게 분포하는지가 정책에 반영되지 못하고 있었습니다.</p>
+<h3 class="step"><span>접근</span></h3><ul class="did"><li>도로를 행정 구획이 아니라 <b>정류장–정류장(약 300m)</b> 단위로 재정의해 분석 단위를 실제 통행 단위에 맞췄습니다.</li><li>세 요소를 정규화해 위험도를 정의했습니다 — <code class='k'>RiskIndex = 0.4×경사 + 0.3×결빙 + 0.3×이용객</code>.</li><li>여기에 사회적 노출을 곱해 <code class='k'>FinalRisk = Hazard × Exposure</code>로 최종 위험도를 산출했습니다.</li><li>결과를 정책 담당자가 바로 읽을 수 있는 위험지도로 시각화했습니다.</li></ul>
+<h3 class="step"><span>결과</span></h3><p>위험 상위 10% 도로 구간을 자동 산출했고, 그 결과가 실제 민원 다발 구간과 <code class='n'>80% 이상 일치</code>해 지표의 타당성을 외부 데이터로 확인했습니다.</p>
+<h3 class="step"><span>이슈 · 고민 기록</span></h3><p>프로젝트를 진행하며 실제로 막혔던 지점과 그때 내린 판단입니다.</p><div class="issue"><h4>가중치를 정당화할 방법이 없었다</h4><p>0.4 / 0.3 / 0.3이라는 가중치는 결국 우리가 정한 값입니다. 전문가 설문이나 사고 회귀분석으로 정하는 방법도 있었지만 데이터가 없었습니다. 대신 <b>결과를 외부 기준으로 검증</b>하는 쪽을 택했습니다. 우리가 뽑은 상위 10% 구간과 실제 주민 민원 다발 구간을 맞춰 봤고 80% 이상 겹쳤습니다.</p>
+          <div class="take"><b>배운 것</b><span>지표의 정당성은 가중치가 아니라 결과의 외부 검증에서 나온다.</span></div></div><div class="issue"><h4>위험한 곳과 위험하면서 사람이 많은 곳은 다르다</h4><p>경사가 급하고 결빙이 잦은 곳만 뽑으면 사람이 거의 안 다니는 골목이 상위권에 올라옵니다. 정책은 한정된 예산으로 열선을 까는 일이라 <b>피해 규모</b>가 기준이어야 했습니다. 그래서 위험도(Hazard)에 이용객 노출(Exposure)을 곱하는 구조로 바꿨습니다.</p>
+          <div class="take"><b>배운 것</b><span>위험도만으로는 우선순위가 나오지 않는다. 노출을 곱해야 한다.</span></div></div>
+<h3 class="step"><span>배운 점</span></h3><p>지표를 만드는 일의 핵심은 가중치를 고르는 게 아니라 <b>그 지표가 맞았는지 검증할 외부 기준을 확보하는 것</b>이었습니다.</p>
+
+
+<footer>
+  <span>이윤지 · Finance AI / Data</span>
+  <span><a href="mailto:lyoonji1025@gmail.com">lyoonji1025@gmail.com</a></span>
+  <span><a href="https://github.com/lyoonji">github.com/lyoonji</a></span>
+</footer>
+</div></body></html>
