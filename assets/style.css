@@ -409,6 +409,14 @@ section{padding-block:0 54px}
 .lk.web::before{content:"F517  ";font-size:12px}
 .lk.doc::before{content:"F4C4  ";font-size:12px}
 
+.pline{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:26px 0 0}
+.printbtn{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--accent);
+  background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 15px;
+  cursor:pointer;transition:border-color .15s,color .15s}
+.printbtn:hover{border-color:var(--accent)}
+.printbtn::before{content:"F5A8  ";font-size:12px}
+@media print{.pline,.printbtn{display:none !important}}
+
 .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
 .links a{font-family:var(--mono);font-size:12px;text-decoration:none;color:var(--ink-soft);
          border:1px solid var(--line);border-radius:3px;padding:6px 12px;background:var(--surface)}
@@ -423,3 +431,84 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-top:20px;font-fa
 footer a{color:var(--ink-faint)}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* ---------- 인쇄 · PDF 저장 ---------- */
+@media print{
+  @page{margin:14mm 12mm}
+  :root{
+    --paper:#fff; --surface:#fff; --ink:#111; --ink-soft:#333; --ink-faint:#666;
+    --line:#c8c8c8; --line-soft:#e2e2e2; --accent:#14507a; --accent-deep:#0B2E4F;
+    --hl:#dceaf2; --hl-soft:#f2f8fb; --chip-bg:#eef4f8; --chip-ink:#14507a;
+    --metric:#0b5f5e; --metric-soft:#eef5f5; --warn:#7a5a12; --warn-soft:#fbf6ea;
+  }
+  body{background:#fff;font-size:10.4pt;line-height:1.62}
+  .topbar,.hero,.notice,.card-go,.moreguide,.ghtop,.ghlink,footer .fw{display:none !important}
+  .wrap{max-width:none;padding:0}
+  a{color:#111;text-decoration:none}
+  a[href^="http"]::after{content:" (" attr(href) ")";font-size:8pt;color:#666;word-break:break-all}
+  .topnav a[href]::after,.crumb a[href]::after,.pmeta a[href]::after{content:""}
+
+  /* 프로필 */
+  .profile{box-shadow:none;border:1px solid #bbb;border-radius:6px;padding:16px 18px;margin:0 0 14px;
+    grid-template-columns:1.4fr 1fr;gap:18px;break-inside:avoid}
+  .pname{font-size:22pt}
+  .pright{grid-template-columns:1fr 1fr;gap:7px}
+  .pstat{background:#f4f8fa;border:1px solid #dde8ee;border-radius:6px;padding:8px 10px}
+  .pstat .n{font-size:13pt}
+
+  /* 섹션 */
+  section{padding-block:0 14px;break-inside:auto}
+  h2.sec{font-size:14pt;margin:16px 0 9px;padding-left:9px;border-left:3px solid var(--accent);
+    break-after:avoid}
+  h2.sec span,h2.sub span,h3.step span{background:none;padding:0}
+  h2.sub{font-size:11.5pt;margin:12px 0 7px;break-after:avoid}
+  h3.step{font-size:10.5pt;margin:12px 0 5px;break-after:avoid}
+  p{margin:0 0 7px;max-width:none}
+  .lede{font-size:11pt}
+
+  /* 카드·블록 */
+  .hl-grid{display:none}
+  .belief,.entry,.future,.vcard,.decision,.issue,.mine,.fit,.limits,.summary,.tile,.hl-card{
+    break-inside:avoid;box-shadow:none}
+  .belief q{font-size:11.5pt}
+  .future,.vcard,.decision,.issue,.mine,.fit,.limits,.summary{
+    border:1px solid #ccc;border-radius:6px;padding:11px 13px;margin-bottom:8px}
+  .issue{border-left:3px solid var(--accent)}
+  .future{border-left:3px solid var(--metric)}
+  .vgrid{grid-template-columns:1fr 1fr;gap:8px}
+  .tablewrap,.matrixwrap,.datatable{border:1px solid #bbb;border-radius:6px;overflow:visible}
+  table{min-width:0}
+  th,td{padding:5px 9px}
+  table.matrix{min-width:0;font-size:8.5pt}
+  table.matrix thead th{height:86px}
+  table.matrix th.pn{width:auto}
+
+  /* 프로젝트: 카드 대신 한 줄 목록 */
+  .cards{display:block}
+  .card{display:block;border:0;border-bottom:1px solid #ddd;border-radius:0;padding:0 0 8px;
+    margin-bottom:8px;break-inside:avoid;transform:none !important}
+  .card-thumb,.stagebar.mini{display:none}
+  .card-body{display:block;padding:0}
+  .card-name{font-size:11.5pt;font-weight:700}
+  .card-name::after{content:""}
+  .card-when{font-size:8.5pt}
+  .card-sub{font-size:9.6pt}
+  .cnum{font-size:9.6pt;margin-top:3px}
+  .groupname{font-size:11.5pt;margin:14px 0 3px;break-after:avoid}
+
+  /* 상세 페이지 */
+  details{border:0;background:none;margin:0}
+  details summary{display:none}
+  details .dbody{padding:0}
+  details[open] .dbody{padding:0}
+  .linkbar{margin-bottom:10px}
+  .lk{border:1px solid #ccc;padding:3px 8px;font-size:8.6pt;background:none;color:#111}
+  .lk.web{background:none;color:#111;font-weight:600}
+  figure{break-inside:avoid;margin-bottom:10px}
+  figure img{border:1px solid #ccc;border-radius:6px}
+  .gal2{grid-template-columns:1fr 1fr;gap:10px}
+  .stagewrap{border:1px solid #ccc;border-radius:6px;padding:10px 13px;margin-bottom:12px;break-inside:avoid}
+
+  footer{border-top:1px solid #bbb;padding-top:8px;margin-top:14px;font-size:8.4pt;color:#555}
+}
+
