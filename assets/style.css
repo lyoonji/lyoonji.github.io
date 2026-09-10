@@ -283,6 +283,21 @@ footer .fw{width:34px;opacity:.45;margin-left:auto}
 .pstat .u{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;
   text-transform:uppercase;color:var(--metric);margin-top:4px}
 
+.card-thumb{position:relative;height:136px;border-radius:13px 13px 0 0;overflow:hidden;
+  border-bottom:1px solid var(--line);display:block}
+.card-thumb .twave{position:absolute;left:0;right:0;bottom:0;width:100%;height:40px}
+.card-thumb .tstat{position:absolute;left:19px;bottom:15px;z-index:2;display:block}
+.card-thumb .tstat b{display:block;font-family:var(--mono);font-size:28px;font-weight:500;color:#fff;
+  line-height:1.05;font-variant-numeric:tabular-nums;letter-spacing:-.01em;
+  text-shadow:0 1px 8px rgba(5,25,45,.3)}
+.card-thumb .tstat i{display:block;font-style:normal;font-size:11.5px;color:rgba(255,255,255,.85);margin-top:4px}
+.card-thumb .ttag{position:absolute;left:19px;top:15px;z-index:2;font-family:var(--mono);font-size:10px;
+  letter-spacing:.09em;color:#fff;background:rgba(255,255,255,.2);border-radius:999px;padding:3px 10px}
+.card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.ghlink{display:inline-flex;color:var(--ink-faint);width:16px}
+.ghtop{display:inline-flex;align-items:center;color:rgba(255,255,255,.85);width:19px;padding-bottom:3px}
+.ghtop:hover{color:#fff}
+
 .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
 .links a{font-family:var(--mono);font-size:12px;text-decoration:none;color:var(--ink-soft);
          border:1px solid var(--line);border-radius:3px;padding:6px 12px;background:var(--surface)}
