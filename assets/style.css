@@ -205,6 +205,21 @@ details .dbody>p:last-child,details .dbody>div:last-child{margin-bottom:0}
 .cnt{font-family:var(--mono);font-size:11px;color:var(--ink-faint);font-weight:400;margin-left:4px}
 .alias{font-size:13.5px;color:var(--ink-faint);margin:-4px 0 10px}
 
+.matrixwrap{overflow-x:auto;border:1px solid var(--line);border-radius:5px;background:var(--surface);margin-bottom:8px}
+table.matrix{border-collapse:collapse;width:100%;min-width:820px}
+table.matrix th,table.matrix td{border-bottom:1px solid var(--line-soft);padding:9px 6px;text-align:center;vertical-align:middle}
+table.matrix thead th{border-bottom:1px solid var(--line);vertical-align:bottom;height:118px;width:64px;padding:0 0 10px}
+table.matrix th.cap span{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--sans);font-size:12.5px;
+  font-weight:500;color:var(--ink-soft);letter-spacing:0;text-transform:none;white-space:nowrap}
+table.matrix th.pn{text-align:left;width:230px;font-family:var(--sans);font-size:13.5px;font-weight:500;
+  letter-spacing:0;text-transform:none;color:var(--ink);padding-left:15px;white-space:normal}
+table.matrix th.pn a{text-decoration:none;color:var(--ink)}
+table.matrix th.pn a:hover{color:var(--accent);text-decoration:underline}
+table.matrix tr:last-child th,table.matrix tr:last-child td{border-bottom:0}
+.m2{color:var(--accent);font-size:15px}
+.m1{color:var(--ink-faint);font-size:13px}
+.mlegend{font-size:12.5px;color:var(--ink-faint);margin-bottom:26px}
+
 .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
 .links a{font-family:var(--mono);font-size:12px;text-decoration:none;color:var(--ink-soft);
          border:1px solid var(--line);border-radius:3px;padding:6px 12px;background:var(--surface)}
