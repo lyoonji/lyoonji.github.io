@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap">
 <style>
 :root{
-  --paper:#F6F6F1; --surface:#FFFFFF; --ink:#14161C; --ink-soft:#4C5058; --ink-faint:#8A8F98;
+  --paper:#F6F6F1; --surface:#FFFFFF; --ink:#101216; --ink-soft:#383C44; --ink-faint:#6C727C;
   --line:#E4E3DA; --line-soft:#EEEDE6;
   --accent:#1F4FD8; --hl:#FFE27A; --hl-soft:#FFF4CC;
   --chip-bg:#FFEFF1; --chip-ink:#C22F49;
@@ -16,7 +16,7 @@
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --paper:#121317; --surface:#1A1C22; --ink:#F2F2EE; --ink-soft:#AFB4BD; --ink-faint:#7A8089;
+    --paper:#121317; --surface:#1A1C22; --ink:#F5F5F1; --ink-soft:#C6CAD2; --ink-faint:#949AA4;
     --line:#2A2D35; --line-soft:#22252C;
     --accent:#8FA9FF; --hl:#6B5A1E; --hl-soft:#3A3116;
     --chip-bg:#3A222A; --chip-ink:#FF97AB;
@@ -33,7 +33,7 @@
   --todo:#D8B769; --todo-soft:#332B18;
 }
 *{box-sizing:border-box}
-body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.75;-webkit-font-smoothing:antialiased}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:400;font-size:15.5px;line-height:1.78;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 h1,h2,h3,h4{margin:0;font-weight:400;text-wrap:balance}
 img{max-width:100%;display:block}
@@ -89,13 +89,14 @@ h2.sec span{background:linear-gradient(transparent 42%, var(--hl) 42%, var(--hl)
 h2.sub{font-family:var(--disp);font-weight:800;font-size:18px;letter-spacing:-.01em;margin-block:32px 16px}
 h2.sub span{background:linear-gradient(transparent 44%, var(--hl) 44%, var(--hl) 92%, transparent 92%);padding:0 5px 0 2px}
 
-p{margin:0 0 14px;max-width:66ch;color:var(--ink-soft)}
+p{margin:0 0 15px;max-width:64ch;color:var(--ink-soft);font-size:15.5px}
 p strong{color:var(--ink);font-weight:600}
-.lede{font-size:17px;color:var(--ink);font-weight:300;line-height:1.7}
+p b{color:var(--ink);font-weight:600}
+.lede{font-size:18px;color:var(--ink);font-weight:400;line-height:1.68;max-width:60ch}
 
 /* inline keyword chip — the device that makes bullets scannable */
-code.k{font-family:var(--mono);font-size:11.5px;font-weight:500;background:var(--chip-bg);color:var(--chip-ink);border-radius:3px;padding:1px 6px;white-space:nowrap}
-code.n{font-family:var(--mono);font-size:11.5px;font-weight:500;background:var(--metric-soft);color:var(--metric);border-radius:3px;padding:1px 6px;white-space:nowrap;font-variant-numeric:tabular-nums}
+code.k{font-family:var(--mono);font-size:12.5px;font-weight:500;background:var(--chip-bg);color:var(--chip-ink);border-radius:3px;padding:1px 6px;white-space:nowrap}
+code.n{font-family:var(--mono);font-size:12.5px;font-weight:500;background:var(--metric-soft);color:var(--metric);border-radius:3px;padding:1px 6px;white-space:nowrap;font-variant-numeric:tabular-nums}
 
 .belief{display:flex;flex-direction:column;gap:9px;padding-block:0 24px}
 .belief q{font-size:19px;font-weight:600;line-height:1.5;color:var(--ink);display:block;max-width:40ch}
@@ -103,22 +104,22 @@ code.n{font-family:var(--mono);font-size:11.5px;font-weight:500;background:var(-
 
 .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:3px;background:var(--surface)}
 table{border-collapse:collapse;width:100%;min-width:660px}
-td.ev{font-size:12px;color:var(--ink-faint);white-space:nowrap;width:1%;text-align:right;font-family:var(--mono)}
+td.ev{font-size:12.5px;color:var(--ink-faint);white-space:nowrap;width:1%;text-align:right;font-family:var(--mono)}
 th,td{text-align:left;padding:10px 15px;border-bottom:1px solid var(--line-soft);vertical-align:top}
 tr:last-child th,tr:last-child td{border-bottom:0}
 th{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);font-weight:500;white-space:nowrap;width:148px}
 .tags{display:flex;flex-wrap:wrap;gap:5px}
-.tag{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);background:var(--paper);border:1px solid var(--line);border-radius:2px;padding:1px 7px}
+.tag{font-family:var(--mono);font-size:12px;color:var(--ink-soft);background:var(--paper);border:1px solid var(--line);border-radius:2px;padding:1px 7px}
 
 /* vertical-bar meta block, borrowed from the reference layout */
 .entry{padding-block:0 26px}
 .entry-top{font-size:16.5px;color:var(--ink);font-weight:600}
-.entry-desc{font-size:13.5px;color:var(--ink-faint);margin-bottom:9px}
+.entry-desc{font-size:14px;color:var(--ink-faint);margin-bottom:9px}
 .barblock{border-left:3px solid var(--ink);padding:1px 0 1px 13px;margin-bottom:12px;display:flex;flex-direction:column;gap:1px}
 .barblock .r{font-size:14.5px;color:var(--ink)}
 .barblock .r em{font-style:normal;font-family:var(--mono);font-size:12.5px;color:var(--ink-faint);margin-left:4px}
 ul.did{margin:0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:7px}
-ul.did li{position:relative;padding-left:15px;font-size:14.5px;color:var(--ink-soft);max-width:68ch}
+ul.did li{position:relative;padding-left:16px;font-size:15px;color:var(--ink-soft);max-width:66ch;line-height:1.72}
 ul.did li::before{content:"";position:absolute;left:1px;top:.68em;width:6px;height:6px;border-radius:50%;background:var(--hl);border:1px solid var(--ink-faint)}
 ul.did li b{color:var(--ink);font-weight:600}
 
@@ -132,7 +133,7 @@ ul.did li b{color:var(--ink);font-weight:600}
 .card-body{display:flex;flex-direction:column;gap:9px;padding:16px 18px 18px;flex:1}
 .card-when{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--ink-faint)}
 .card-name{font-size:18px;font-weight:600;line-height:1.3;color:var(--ink)}
-.card-sub{font-size:13px;color:var(--ink-soft);line-height:1.58;flex:1}
+.card-sub{font-size:13.5px;color:var(--ink-soft);line-height:1.62;flex:1}
 .card-metrics{display:flex;flex-wrap:wrap;gap:5px}
 .chip{font-family:var(--mono);font-size:11px;color:var(--metric);background:var(--metric-soft);border-radius:999px;padding:2px 9px;font-variant-numeric:tabular-nums}
 .card-go{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
@@ -148,11 +149,11 @@ h1.detail{font-size:33px;font-weight:700;letter-spacing:-.02em;line-height:1.18;
 .meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding-block:14px;margin-bottom:24px}
 .meta div{display:flex;flex-direction:column;gap:2px}
 .meta .k{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
-.meta .v{font-size:13.5px;color:var(--ink)}
+.meta .v{font-size:14.5px;color:var(--ink)}
 .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-block:0 24px}
 .tile{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--metric);border-radius:3px;padding:12px 14px;display:flex;flex-direction:column;gap:2px}
 .tile .n{font-family:var(--mono);font-size:23px;font-weight:500;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.2}
-.tile .l{font-size:12px;color:var(--ink-soft);line-height:1.45}
+.tile .l{font-size:12.5px;color:var(--ink-soft);line-height:1.45}
 h3.step{font-family:var(--disp);font-weight:800;font-size:14px;letter-spacing:.02em;margin-block:26px 9px;color:var(--ink)}
 h3.step span{background:linear-gradient(transparent 46%, var(--hl) 46%, var(--hl) 94%, transparent 94%);padding:0 5px 0 2px}
 .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
