@@ -368,6 +368,23 @@ footer .fw svg{width:34px;height:auto;display:block}
 .card-thumb .twave{z-index:2}
 .card-thumb .ttag,.card-thumb .tstat{z-index:3}
 
+/* --- 카드 여백을 넓히고 정보를 덜어낸다 --- */
+.cards{gap:22px}
+.card-body{gap:11px;padding:20px 22px 22px}
+.card-name{font-size:19px;line-height:1.32;margin-top:1px}
+.card-sub{font-size:13.5px;line-height:1.66;color:var(--ink-soft)}
+.card-when{font-size:11px;letter-spacing:.09em}
+.stagebar.mini{margin-top:6px;padding-top:13px;border-top:1px solid var(--line-soft);gap:5px}
+.card-thumb{height:150px}
+/* 네비 선택 항목을 알약 형태로 */
+.topnav a{padding:6px 13px;border-radius:999px;border-bottom:0}
+.topnav a:hover{background:rgba(255,255,255,.12);border-bottom:0;color:#fff}
+.topnav a.on{background:#fff;color:#0B2E4F;font-weight:700;border-bottom:0}
+.topnav{gap:6px}
+/* 섹션 사이 숨 */
+.groupname{margin:46px 0 4px}
+section{padding-block:0 54px}
+
 .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
 .links a{font-family:var(--mono);font-size:12px;text-decoration:none;color:var(--ink-soft);
          border:1px solid var(--line);border-radius:3px;padding:6px 12px;background:var(--surface)}
