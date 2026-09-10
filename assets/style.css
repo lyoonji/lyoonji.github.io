@@ -133,6 +133,7 @@ h1.detail{font-size:34px;font-weight:700;letter-spacing:-.02em;line-height:1.18;
 .taglabel{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--chip-ink);
           background:var(--chip-bg);border-radius:3px;padding:2px 9px;margin-bottom:10px}
 
+.alias{font-size:13.5px;color:var(--ink-faint);margin:-4px 0 10px}
 .toc{background:var(--surface);border:1px solid var(--line);border-radius:5px;padding:16px 20px;margin:26px 0 4px}
 .toc b{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:9px}
 .toc ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:3px}
