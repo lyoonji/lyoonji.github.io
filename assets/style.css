@@ -189,6 +189,22 @@ figcaption{font-size:12.5px;color:var(--ink-faint);margin-top:7px;line-height:1.
 .fit li{font-size:14.5px;color:var(--ink-soft);line-height:1.7}
 .fit li b{color:var(--ink)}
 
+.summary{background:var(--hl-soft);border:1px solid var(--accent);border-radius:6px;padding:16px 20px;margin:20px 0 4px}
+.summary>b{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--accent);margin-bottom:8px}
+.summary ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:7px}
+.summary li{font-size:15.5px;color:var(--ink);line-height:1.68}
+.moreguide{font-size:13.5px;color:var(--ink-faint);margin-bottom:12px}
+details{border:1px solid var(--line);border-radius:5px;background:var(--surface);margin-bottom:9px;overflow:hidden}
+details summary{cursor:pointer;padding:13px 18px;font-size:15px;font-weight:600;color:var(--ink);list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"B8  ";color:var(--accent)}
+details[open] summary::before{content:"BE  "}
+details summary:hover{color:var(--accent)}
+details .dbody{padding:2px 18px 18px}
+details .dbody>p:last-child,details .dbody>div:last-child{margin-bottom:0}
+.cnt{font-family:var(--mono);font-size:11px;color:var(--ink-faint);font-weight:400;margin-left:4px}
+.alias{font-size:13.5px;color:var(--ink-faint);margin:-4px 0 10px}
+
 .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
 .links a{font-family:var(--mono);font-size:12px;text-decoration:none;color:var(--ink-soft);
          border:1px solid var(--line);border-radius:3px;padding:6px 12px;background:var(--surface)}
